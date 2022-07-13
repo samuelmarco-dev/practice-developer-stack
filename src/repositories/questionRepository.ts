@@ -6,3 +6,15 @@ export async function insert(createQuestion: CreateQuestionData){
         data: createQuestion
     })
 }
+
+export async function select(){
+    const questions = await prisma.question.findMany();
+    return questions;
+}
+
+export async function selectById(id: number) {
+    const question = await prisma.question.findUnique({
+        where: { id }
+    });
+    return question;
+}
