@@ -26,7 +26,7 @@ export async function answer(req: Request, res: Response) {
 
 export async function get(req: Request, res: Response) {
   const questions = await questionService.getQuestions();
-  res.status(200).send(questions);
+  res.status(200).send({questions});
 }
 
 export async function getById(req: Request, res: Response) {

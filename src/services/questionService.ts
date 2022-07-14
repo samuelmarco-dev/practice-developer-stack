@@ -12,9 +12,14 @@ async function getQuestions(){
     return findMany;
 }
 
-async function getQuestionsId(id: number) {
-    const findUnique = await questionRepository.selectById(id);
-    return findUnique;
+async function getQuestionsId(idQuestion: number) {
+    const findUnique = await questionRepository.selectById(idQuestion);
+    const {id, question, answer} = findUnique;
+    return {
+        id,
+        question,
+        answers: answer
+    }
 }
 
 const questionService = {
